@@ -20,14 +20,20 @@ The config file is stored in the mounted `/usr/app/config` volume and can be nam
 {
   "runOnStartup": true,
   "cronSchedule": "0 0,6,12,18 * * *",
+  // You may configure it as array of cron schedules:
+  // [
+  //   "0 0 * * 1",
+  //   "0 0 15-31 12 *",
+  //   "0 0 1-3 1 *",
+  // ]
   "logLevel": "info",
   "webPortalConfig": {
-    "baseUrl": "https://epic.example.com",
+    "baseUrl": "https://epic.example.com"
   },
   "accounts": [
     {
-      "email": "example@gmail.com",
-    },
+      "email": "example@gmail.com"
+    }
   ],
   "notifiers": [
     // You may configure as many of any notifier as needed
@@ -41,44 +47,44 @@ The config file is stored in the mounted `/usr/app/config` volume and can be nam
       "emailRecipientAddress": "hello@gmail.com",
       "secure": false,
       "auth": {
-          "user": "hello@gmail.com",
-          "pass": "abc123",
-      },
+        "user": "hello@gmail.com",
+        "pass": "abc123"
+      }
     },
     {
       "type": "discord",
       "webhookUrl": "https://discord.com/api/webhooks/123456789123456789/A-abcdefghijklmn-abcdefghijklmnopqrst12345678-abcdefghijklmnop123456",
       // Optional list of users or roles to mention
       "mentionedUsers": ["914360712086843432"],
-      "mentionedRoles": ["734548250895319070"],
+      "mentionedRoles": ["734548250895319070"]
     },
     {
       "type": "telegram",
       // Optional Custom TELEGRAM server URL
       "apiUrl": "https://api.telegram.org",
       "token": "644739147:AAGMPo-Jz3mKRnHRTnrPEDi7jUF1vqNOD5k",
-      "chatId": "-987654321",
+      "chatId": "-987654321"
     },
     {
       "type": "apprise",
       "apiUrl": "http://192.168.1.2:8000",
-      "urls": "mailto://user:pass@gmail.com",
+      "urls": "mailto://user:pass@gmail.com"
     },
     {
       "type": "pushover",
       "token": "a172fyyl9gw99p2xi16tq8hnib48p2",
-      "userKey": "uvgidym7l5ggpwu2r8i1oy6diaapll",
+      "userKey": "uvgidym7l5ggpwu2r8i1oy6diaapll"
     },
     {
       "type": "gotify",
       "apiUrl": "https://gotify.net",
-      "token": "SnL-wAvmfo_QT",
+      "token": "SnL-wAvmfo_QT"
     },
     {
       "type": "homeassistant",
       "instance": "https://homeassistant.example.com",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-      "notifyservice": "mobile_app_smartphone_name",
+      "notifyservice": "mobile_app_smartphone_name"
     },
     {
       "type": "bark",
@@ -92,12 +98,12 @@ The config file is stored in the mounted `/usr/app/config` volume and can be nam
       "apiUrl": "https://api.day.app"
     },
     {
-        "type": "ntfy",
-        "webhookUrl": "https://ntfy.example.com/mytopic",
-        "priority": "urgent",
-        "token": "tk_mytoken"
-    },
-  ],
+      "type": "ntfy",
+      "webhookUrl": "https://ntfy.example.com/mytopic",
+      "priority": "urgent",
+      "token": "tk_mytoken"
+    }
+  ]
 }
 ```
 
@@ -120,8 +126,8 @@ If you don't have the ability to port forward/reverse proxy on your network, you
 ```jsonc
 {
   "webPortalConfig": {
-    "localtunnel": true,
-  },
+    "localtunnel": true
+  }
 }
 ```
 
@@ -146,13 +152,13 @@ Note: to optimize for standby memory usage, the web server does not run when the
 
 This image is available from both [GitHub Container Registry](https://github.com/claabs/epicgames-freegames-node/pkgs/container/epicgames-freegames-node) and [Docker Hub](https://hub.docker.com/repository/docker/charlocharlie/epicgames-freegames):
 
-* `ghcr.io/claabs/epicgames-freegames-node:latest`
-* `charlocharlie/epicgames-freegames:latest`
+- `ghcr.io/claabs/epicgames-freegames-node:latest`
+- `charlocharlie/epicgames-freegames:latest`
 
 If you're [experiencing issues with Chromium starting](https://github.com/claabs/epicgames-freegames-node/issues/164) (hangs on login/notification), you can try the Debian image:
 
-* `ghcr.io/claabs/epicgames-freegames-node:bullseye-slim`
-* `charlocharlie/epicgames-freegames:bullseye-slim`
+- `ghcr.io/claabs/epicgames-freegames-node:bullseye-slim`
+- `charlocharlie/epicgames-freegames:bullseye-slim`
 
 If you are using full JSON configuration, the only remaining Docker configurables are the [port](#ports) and [volume](#volumes).
 
@@ -165,13 +171,13 @@ If for whatever reason you want to change the default config directory or config
 #### Ports
 
 | Host port | Container port | Description                                                                   |
-|-----------|----------------|-------------------------------------------------------------------------------|
+| --------- | -------------- | ----------------------------------------------------------------------------- |
 | `3000`    | `3000`         | Port mapping on which the web server hosting the captcha solving page resides |
 
 #### Volumes
 
 | Host location   | Container location | Mode | Description                               |
-|-----------------|--------------------|------|-------------------------------------------|
+| --------------- | ------------------ | ---- | ----------------------------------------- |
 | `/my/host/dir/` | `/usr/app/config`  | `rw` | Location of the config and cookie file(s) |
 
 #### Memory Limit
@@ -198,32 +204,32 @@ If you're experiencing issues logging in with device code auth, you can import c
 1. In your web browser, log in to the Epic Games Store with "Remember me" checked.
 1. Install the [EditThisCookie](http://www.editthiscookie.com/) browser extension.
 1. While viewing the Epic Games Store page, open the EditThisCookie extension window, change the URL to `https://www.epicgames.com/id`, and click the export button:
-![EditThisCookie export button](https://github.com/claabs/epicgames-freegames-node/blob/master/img/edit-this-cookie.png?raw=true)
+   ![EditThisCookie export button](https://github.com/claabs/epicgames-freegames-node/blob/master/img/edit-this-cookie.png?raw=true)
 1. In your mounted `./config` folder, create `<email_address>-cookies.json` (e.g. `me@example.com-cookies.json`), and paste in your cookies.
 1. Start the container and the cookies will automatically be converted to a new format.
 
 #### Cookie Import Notes
 
-* If you click "Log Out" on the browser session you copied the cookies from, the container may break.
-* If you have the container scheduled regularly, it should automatically refresh the cookies and keep you logged in for some time.
+- If you click "Log Out" on the browser session you copied the cookies from, the container may break.
+- If you have the container scheduled regularly, it should automatically refresh the cookies and keep you logged in for some time.
 
 ## Running without Docker
 
 If for some reason you don't want to use Docker to run this tool you can run it from source by cloning this repo and installing Node.js.
 
 1. Get this repo from Github
-    * Clone using git (recommended): `git clone https://github.com/claabs/epicgames-freegames-node.git`
-    * Or download and unpack ZIP archive: [epicgames-freegames-node](https://github.com/claabs/epicgames-freegames-node/archive/master.zip)
+   - Clone using git (recommended): `git clone https://github.com/claabs/epicgames-freegames-node.git`
+   - Or download and unpack ZIP archive: [epicgames-freegames-node](https://github.com/claabs/epicgames-freegames-node/archive/master.zip)
 1. Create `config` folder in the cloned/unpacked directory
 1. Create [JSON configuration](#json-configuration)
 1. [Install Node.js 18](https://nodejs.org/) or higher
 1. Install Node.js dependencies
-    * Start terminal and navigate to cloned/unpacked directory
-    * Run `npm i`
+   - Start terminal and navigate to cloned/unpacked directory
+   - Run `npm i`
 1. Start application: `npm run start`
 1. To update when using Git:
-    * `git pull`
-    * `npm i`
+   - `git pull`
+   - `npm i`
 
 ## Miscellaneous
 
@@ -233,17 +239,17 @@ In v5, several options have been added or removed. The added/removed options sho
 
 #### Changed
 
-* `cronSchedule`: The default was changed to every six hours. You should change your cron schedule to run more often than every 8 hours, as the device code auth refresh token expires after 8 hours.
+- `cronSchedule`: The default was changed to every six hours. You should change your cron schedule to run more often than every 8 hours, as the device code auth refresh token expires after 8 hours.
 
 #### Removed
 
-* `account.password`: login credentials are no longer used
-* `account.totp`: login credentials are no longer used
-* `noHumanErrorHelp`: purchase is no longer automated
-* `hcaptchaAccessibilityUrl`: was deprecated in v4
-* `email`: was deprecated in v4, use `notifiers` with `"type": "email"`
-* `baseUrl`: was deprecated in v4, use `webPortalConfig.baseUrl`
-* `onlyWeekly`: was deprecated in v4, use `searchStrategy`
+- `account.password`: login credentials are no longer used
+- `account.totp`: login credentials are no longer used
+- `noHumanErrorHelp`: purchase is no longer automated
+- `hcaptchaAccessibilityUrl`: was deprecated in v4
+- `email`: was deprecated in v4, use `notifiers` with `"type": "email"`
+- `baseUrl`: was deprecated in v4, use `webPortalConfig.baseUrl`
+- `onlyWeekly`: was deprecated in v4, use `searchStrategy`
 
 ### Thanks
 

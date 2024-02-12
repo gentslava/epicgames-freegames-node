@@ -674,8 +674,15 @@ export class AppConfig {
   /**
    * Cron string of when to run the process.
    * **It is recommended to run every 6 hours, otherwise the refresh tokens will expire after 8 hours and a new login will be prompted every run.**
+   * You also can configure it as array of cron schedules.
    * If you want the check to occur immediately after the new free game is released, you can offset the cron schedule. For example in a timezone where the free games release at 11:00am: `0 5,11,17,23 * * *`
    * @example 0 5,11,17,23 * * *
+   * @example
+   * [
+   *   0 0 * * 1,
+   *   0 0 15-31 12 *,
+   *   0 0 1-3 1 *,
+   * ]
    * @default 0 0,6,12,18 * * * (every six hours)
    * @env CRON_SCHEDULE
    */
