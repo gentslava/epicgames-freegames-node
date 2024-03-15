@@ -17,5 +17,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: charlocharlie/epicgames-freegames
+          repository: gentslava/epicgames-freegames
           readme-filepath: ./Readme.md

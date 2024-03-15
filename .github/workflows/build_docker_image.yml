@@ -47,10 +47,10 @@ jobs:
           target: deploy
           push: true
           tags: |
-            charlocharlie/epicgames-freegames:latest
-            charlocharlie/epicgames-freegames:${{ github.sha }}
-            ghcr.io/claabs/epicgames-freegames-node:latest
-            ghcr.io/claabs/epicgames-freegames-node:${{ github.sha }}
+            gentslava/epicgames-freegames:latest
+            gentslava/epicgames-freegames:${{ github.sha }}
+            ghcr.io/gentslava/epicgames-freegames-node:latest
+            ghcr.io/gentslava/epicgames-freegames-node:${{ github.sha }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           build-args: |
             COMMIT_SHA=${{ github.sha }}
@@ -67,10 +67,10 @@ jobs:
           push: true
           file: Dockerfile.debian
           tags: |
-            charlocharlie/epicgames-freegames:bullseye-slim
-            ghcr.io/claabs/epicgames-freegames-node:bullseye-slim
-            charlocharlie/epicgames-freegames:debian
-            ghcr.io/claabs/epicgames-freegames-node:debian
+            gentslava/epicgames-freegames:bullseye-slim
+            ghcr.io/gentslava/epicgames-freegames-node:bullseye-slim
+            gentslava/epicgames-freegames:debian
+            ghcr.io/gentslava/epicgames-freegames-node:debian
           platforms: linux/amd64
           build-args: |
             COMMIT_SHA=${{ github.sha }}
@@ -86,8 +86,8 @@ jobs:
           target: deploy
           push: true
           tags: |
-            charlocharlie/epicgames-freegames:dev
-            ghcr.io/claabs/epicgames-freegames-node:dev
+            gentslava/epicgames-freegames:dev
+            ghcr.io/gentslava/epicgames-freegames-node:dev
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           build-args: |
             COMMIT_SHA=${{ github.sha }}
